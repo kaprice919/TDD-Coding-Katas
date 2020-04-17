@@ -1,8 +1,8 @@
 namespace GameOfLife
 {
-    public static class GameOfLife
+    public static class BoardProcessor
     {
-        public static bool[,] GetNextBoard(bool[,] currentBoard)
+        public static bool[,] GetNextBoardIteration(bool[,] currentBoard)
         {
             if(currentBoard.Length > 0)
             {

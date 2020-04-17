@@ -1,10 +1,11 @@
 using System;
 using Xunit;
 using FluentAssertions;
+using GameOfLife;
 
-namespace GameOfLife
+namespace GameOfLifeTests
 {
-    public class GameOfLifeTests
+    public class BoardProcessorTests
     {
         [Fact]
         public void TestReturnsAnEmptyBoard()
@@ -12,7 +13,7 @@ namespace GameOfLife
             bool[,] initialBoard = new bool[0,0];
             bool[,] expectedBoard = new bool[0,0];
 
-            bool[,] actualBoard = GameOfLife.GetNextBoard(initialBoard);
+            bool[,] actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
             actualBoard.Should().BeEquivalentTo(expectedBoard); 
         }
 
@@ -29,7 +30,7 @@ namespace GameOfLife
                 {false}
             };
 
-            bool[,] actualBoard = GameOfLife.GetNextBoard(initialBoard);
+            bool[,] actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
             actualBoard.Should().BeEquivalentTo(expectedBoard);
         }
 
@@ -46,7 +47,7 @@ namespace GameOfLife
                 {false}
             };
 
-            bool[,] actualBoard = GameOfLife.GetNextBoard(initialBoard);
+            bool[,] actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
             actualBoard.Should().BeEquivalentTo(expectedBoard);
         }
 
@@ -63,7 +64,7 @@ namespace GameOfLife
                 {false, true, false}
             };
 
-            bool[,] actualBoard = GameOfLife.GetNextBoard(initialBoard);
+            bool[,] actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
             actualBoard.Should().BeEquivalentTo(expectedBoard);
         }
     }
