@@ -10,61 +10,58 @@ namespace GameOfLifeTests
         [Fact]
         public void TestReturnsAnEmptyBoard()
         {
-            bool[,] initialBoard = new bool[0,0];
-            bool[,] expectedBoard = new bool[0,0];
+            Board initialBoard = new Board(0,0);
+            Board expectedBoard = new Board(0,0);
 
-            bool[,] actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
+            Board actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
             actualBoard.Should().BeEquivalentTo(expectedBoard); 
         }
 
         [Fact]
         public void TestBoardWithOneLiveCellReturnsOneDeadCell()
         {
-            bool[,] initialBoard = new bool[,]
+            Board initialBoard = new Board(new[,] 
             {
                 {true}
-            };
-
-            bool[,] expectedBoard = new bool[,]
+            });
+            Board expectedBoard = new Board(new[,] 
             {
                 {false}
-            };
+            });
 
-            bool[,] actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
+            Board actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
             actualBoard.Should().BeEquivalentTo(expectedBoard);
         }
 
         [Fact]
         public void TestBoardWithOneDeadCellReturnsOneDeadCell()
         {
-            bool[,] initialBoard = new bool[,]
+            Board initialBoard = new Board(new[,] 
             {
                 {false}
-            };
-
-            bool[,] expectedBoard = new bool[,]
+            });
+            Board expectedBoard = new Board(new[,] 
             {
                 {false}
-            };
+            });
 
-            bool[,] actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
+            Board actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
             actualBoard.Should().BeEquivalentTo(expectedBoard);
         }
 
         [Fact]
         public void TestBoardWithThreeLiveCellsReturnsOneLiveCell()
         {
-            bool[,] initialBoard = new bool[,]
+            Board initialBoard = new Board(new[,] 
             {
                 {true, true, true}
-            };
-
-            bool[,] expectedBoard = new bool[,]
+            });
+            Board expectedBoard = new Board(new[,] 
             {
                 {false, true, false}
-            };
+            });
 
-            bool[,] actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
+            Board actualBoard = BoardProcessor.GetNextBoardIteration(initialBoard);
             actualBoard.Should().BeEquivalentTo(expectedBoard);
         }
     }

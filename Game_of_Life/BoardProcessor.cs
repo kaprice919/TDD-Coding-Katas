@@ -2,25 +2,25 @@ namespace GameOfLife
 {
     public static class BoardProcessor
     {
-        public static bool[,] GetNextBoardIteration(bool[,] currentBoard)
+        public static Board GetNextBoardIteration(Board currentBoard)
         {
-            if(currentBoard.Length > 0 && currentBoard.Length <= 2)
+            if(currentBoard.board.Length > 0 && currentBoard.board.Length <= 2)
             {
-                return new bool[,]
+                return new Board(new[,] 
                 {
                     {false}
-                };
+                });
             }
-            else if(currentBoard.Length > 2)
+            else if(currentBoard.board.Length > 2)
             {
-                return new bool[,]
+                return new Board(new[,] 
                 {
-                    {false, true, false}
-                };
+                    {false,true,false}
+                });
             }
             else
             {
-                return new bool[0,0];
+                return new Board(0,0);
             }
         }
     }
