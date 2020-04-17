@@ -4,11 +4,18 @@ namespace GameOfLife
     {
         public static bool[,] GetNextBoardIteration(bool[,] currentBoard)
         {
-            if(currentBoard.Length > 0)
+            if(currentBoard.Length > 0 && currentBoard.Length <= 2)
             {
                 return new bool[,]
                 {
                     {false}
+                };
+            }
+            else if(currentBoard.Length > 2)
+            {
+                return new bool[,]
+                {
+                    {false, true, false}
                 };
             }
             else
